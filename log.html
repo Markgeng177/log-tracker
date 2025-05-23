@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Log Entry</title>
+</head>
+<body>
+  <h2>Please enter your name</h2>
+  <input type="text" id="nameInput" placeholder="Your name" />
+  <button onclick="submit()">Submit</button>
+
+  <script>
+    function submit() {
+      const name = document.getElementById("nameInput").value.trim();
+      if (!name) {
+        alert("Please enter your name.");
+        return;
+      }
+
+      const userAgent = navigator.userAgent;
+      const scriptURL = "https://script.google.com/macros/s/AKfycbxaXjyGoxssz1Er8J41jyNojaFtv-f8_wAQwKCvsyltgLyzDkf-9Rp52wemoGBntdY_eA/exec";
+
+      const fullURL = scriptURL + "?name=" + encodeURIComponent(name) + "&useragent=" + encodeURIComponent(userAgent);
+      window.location.href = fullURL;
+    }
+  </script>
+</body>
+</html>
